@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+      - "1433:1433"
+    volumes:
+      - C:\Source\Docker\DB:/var/opt/mssql/data
+
+    environment:
+      SA_PASSWORD: "S3cur3P@ssW0rd!"
+      ACCEPT_EULA: "Y"
+
+  bankingservice:
+    image: ${DOCKER_REGISTRY-}bankingservice
+    build:
+      context: .
+      dockerfile: BankingService/Dockerfile
+    restart: on-failure:15 # always
+    depends_on:
+      - rabbitmq
+      - db
+
+  transferservice:
+    image: ${DOCKER_REGISTRY-}transferservice
+    build:
+      context: .
+      dockerfile: TransferService/Dockerfile
+    restart: on-failure:15 # always
+    depends_on:
+      - rabbitmq
+      - db
