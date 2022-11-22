@@ -7,5 +7,6 @@ Dieses Projekt wurde von mir ursprünglich als Teil des Prototypings während me
 Anmerkungen:
 - Docker ist Voraussetzung, um diese Solution zum Laufen zu bekommen.
 - Zum Aufräumen des Codes nutze ich die VS Erweiterung "CodeMaid" (https://www.codemaid.net/documentation/). Diese hat im Moment leider die Eigenschaft, die Tabs zu verändern, so dass leider nicht alle .cs Dateien gleich formatiert sind.
-- Die Datenbank kann über Program.cs über eine äußerst gruselige Methode beim ersten Mal "Run" erzeugt werden (siehe entsprechenden Kommentar im Code) oder man nutzt die beigelegten sample.sql Dateien über das SQL Server Management Studio. Verbindungsdaten finden sich in den appsettings.json.
+- Die Datenbank kann über Program.cs über eine äußerst gruselige Methode beim ersten Mal "Run" erzeugt werden (siehe entsprechenden Kommentar im Code) oder man nutzt die beigelegten sample.sql Dateien über das SQL Server Management Studio. Verbindungsdaten finden sich in den appsettings.json. 
+Diesen Teil werde ich aber noch überarbeiten.
 - Die Codequalität entspricht nicht der "Reinschrift".
